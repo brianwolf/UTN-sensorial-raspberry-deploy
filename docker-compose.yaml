@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+
+  sensorial-raspberry:
+    image: brianwolf94/sensorial-raspberry:local
+    container_name: sensorial-raspberry
+    restart: on-failure:3
+    environment:
+      - LOG_DIR=/home/utn/.sensorial/logs/
+      - LOG_MAX_KB=1000
+      - LOG_BACKUP_COUNT=2
+      - LOG_LEVEL=INFO
+      - SQLITE_PATH=/home/utn/.sensorial/db/sqlite.db
+      - SEND_BACKEND_SECONDS=60
+      - SEND_BACKEND_MAX_METRICS=50
+      - SEND_BACKEND_TRIES=3
+    volumes: 
+      - sensorial-raspberry:/home/utn/.sensorial:rw
+    ports:
+      - 80:80
+    networks: 
+      - docker-net
+
+networks:
+  docker-net:
+    name: docker-net
+    external: false
+  
+volumes:
+  sensorial-raspberry:
+    name: sensorial-raspberry
+    external: false
