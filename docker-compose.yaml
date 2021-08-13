@@ -3,7 +3,7 @@ version: "3.9"
 services:
 
   sensorial-raspberry:
-    image: brianwolf94/sensorial-raspberry:local
+    image: brianwolf94/sensorial-raspberry:latest
     container_name: sensorial-raspberry
     restart: on-failure:3
     environment:
@@ -15,6 +15,7 @@ services:
       - SEND_BACKEND_SECONDS=60
       - SEND_BACKEND_MAX_METRICS=50
       - SEND_BACKEND_TRIES=3
+      - SEND_BACKEND_URL=http://0.0.0.0:80/api/v1/mocks/backend/metrics
     volumes: 
       - sensorial-raspberry:/home/utn/.sensorial:rw
     ports:
