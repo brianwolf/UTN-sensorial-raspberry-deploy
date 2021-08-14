@@ -24,3 +24,9 @@ update u:
 	git pull
 	docker-compose pull
 	docker-compose up -d
+
+
+delete-volume delvol:
+	docker-compose down
+	docker volume rm $(IMAGE_NAME)
+	docker-compose up -d
