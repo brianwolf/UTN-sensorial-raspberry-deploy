@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   sensorial-raspberry:
-    image: brianwolf94/sensorial-raspberry:latest
+    image: utnsensorial/sensorial-raspberry:latest
     container_name: sensorial-raspberry
     restart: on-failure:3
     environment:
