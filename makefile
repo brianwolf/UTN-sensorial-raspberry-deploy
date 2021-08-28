@@ -8,8 +8,11 @@ logs l:
 
 
 install i:
-	docker-compose pull
 	docker-compose up -d
+
+
+stop s:
+	docker-compose down
 
 
 remove r:
