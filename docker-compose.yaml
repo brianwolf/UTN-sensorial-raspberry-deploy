@@ -3,19 +3,17 @@ version: "3.8"
 services:
 
   sensorial-raspberry:
-    image: brianwolf94/sensorial-raspberry:latest
+    image: utnsensorial/sensorial-raspberry:latest
     container_name: sensorial-raspberry
     restart: on-failure:3
     environment:
-      - LOG_DIR=/home/utn/.sensorial/logs/
       - LOG_MAX_KB=1000
       - LOG_BACKUP_COUNT=2
       - LOG_LEVEL=INFO
-      - SQLITE_PATH=/home/utn/.sensorial/db/sqlite.db
       - SEND_BACKEND_SECONDS=60
       - SEND_BACKEND_MAX_METRICS=50
       - SEND_BACKEND_TRIES=3
-      - SEND_BACKEND_URL=http://0.0.0.0:80/api/v1/mocks/backend/metrics
+      - SEND_BACKEND_URL=https://sensorial-back.herokuapp.com/api/v1/mediciones
     volumes: 
       - sensorial-raspberry:/home/utn/.sensorial:rw
     ports:

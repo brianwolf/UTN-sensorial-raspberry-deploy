@@ -1,5 +1,5 @@
 IMAGE_NAME ?= sensorial-raspberry
-REPO_NAME ?= brianwolf94
+REPO_NAME ?= utnsensorial
 
 .SILENT:
 
