@@ -6,6 +6,7 @@ services:
     image: utnsensorial/sensorial-raspberry:latest
     container_name: sensorial-raspberry
     restart: on-failure:3
+    privileged: true
     environment:
       - LOG_MAX_KB=1000
       - LOG_BACKUP_COUNT=2
